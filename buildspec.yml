@@ -3,23 +3,20 @@ phases:
   install:
     runtime-versions:
       nodejs: 10
+    commands:
+      - echo Installing
   pre_build:
     commands:
-      - echo Installing source NPM dependencies...
+      - echo Installing source NPM dependencies.
       - npm install
   build:
     commands:
       - echo Build started on `date`
       - echo Compiling the Node.js code
-      - npm run test
+      - npm run build
   post_build:
     commands:
       - echo Build completed on `date`
-# Include only the files required for your application to run.
 artifacts:
   files:
-    - index.js
-    - package.json
-    - generate/**/*
-    - routes/**/*
-    - services/**/*
+    - '**/*'
