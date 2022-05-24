@@ -12,7 +12,7 @@ router.get('/getArticlesByPersonId', async function(req, res, next) {
   }
 });
 
-// changee
+// changeee
 
 router.get('/articlesByPhrase', async function(req, res, next) {
   try {
