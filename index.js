@@ -1,9 +1,10 @@
-const express = require("express");
-const cors = require('cors')
+import express from "express";
+import cors from 'cors';
+import articlesRouter from "./routes/articlesRouter.js";
+import personsRouter from "./routes/personsRouter.js";
+import config from './config.js';
+
 const app = express();
-const port = 8080;
-const articlesRouter = require("./routes/articlesRouter");
-const personsRouter = require("./routes/personsRouter");
 
 app.use(cors())
 app.use(express.json());
@@ -24,6 +25,6 @@ app.use((err, req, res, next) => {
   res.status(statusCode).json({ message: err.message });
   return;
 });
-app.listen(port, () => {
-  console.log(`WTS API listening at http://localhost:${port}`);
+app.listen(config.details.port, () => {
+  console.log(`${ config.details.application_name } started on port ${ config.details.port }`);
 });

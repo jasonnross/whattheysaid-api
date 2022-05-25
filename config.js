@@ -1,4 +1,8 @@
 const config = {
+  details: {
+    application_name: 'whattheysaid-api',
+    port: 8080,
+  },
   db: {
     /* don't expose password or any sensitive info, done only for demo */
     host: "wts-test-db.clq3mntuxry8.us-west-2.rds.amazonaws.com",
@@ -8,4 +12,5 @@ const config = {
   },
   listPerPage: 10,
 };
-module.exports = config;
+
+export default config;

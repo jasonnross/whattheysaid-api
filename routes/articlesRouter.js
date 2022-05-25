@@ -1,6 +1,7 @@
-const express = require('express');
-const { query } = require('../services/db');
-const router = express.Router();
+import express from 'express';
+import { query } from '../services/db.js';
+
+const router = new express.Router();
 
 router.get('/getArticlesByPersonId', async function(req, res, next) {
   try {
@@ -12,8 +13,6 @@ router.get('/getArticlesByPersonId', async function(req, res, next) {
   }
 });
 
-// changeee
-
 router.get('/articlesByPhrase', async function(req, res, next) {
   try {
     const queryResult = await query('SELECT * FROM articles WHERE person_id = ? AND ', [req.query.personId]);
@@ -24,4 +23,4 @@ router.get('/articlesByPhrase', async function(req, res, next) {
   }
 });
 
-module.exports = router;
+export default router;

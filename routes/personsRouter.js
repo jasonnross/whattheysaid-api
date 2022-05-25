@@ -1,6 +1,7 @@
-const express = require('express');
-const { query } = require('../services/db');
-const router = express.Router();
+import express from 'express';
+import { query } from '../services/db.js';
+
+const router = new express.Router();
 
 router.get('/', async function(req, res, next) {
   try {
@@ -12,4 +13,4 @@ router.get('/', async function(req, res, next) {
   }
 });
 
-module.exports = router;
+export default router;
